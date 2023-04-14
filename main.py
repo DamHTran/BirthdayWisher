@@ -14,12 +14,9 @@ for index, row in birthdays.iterrows():
         letter_number = random.randint(1, 3)
         with open(f"letter_templates/letter_{letter_number}.txt", "r") as file:
             letter_template = file.read()
+            letter = letter_template.replace("[NAME]", row["name"])
+            print(letter)
 
-        letter = letter_template.replace("[NAME]", row["name"])
-        print(letter)
-
-        with open(f"letter_{row['name']}.txt", "w") as file:
-            file.write(letter)
 
 
 # ------------------ SEND EMAIL -------------------------------#
